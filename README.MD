@@ -52,7 +52,7 @@ from our Github repository. This will start both containers and it also takes ca
 connection between WebGoat and WebWolf.
 
 ```shell
-curl https://raw.githubusercontent.com/WebGoat/WebGoat/develop/docker-compose.yml | docker-compose -f - up
+https://raw.githubusercontent.com/vargadan/WebGoat/sprg/docker-compose.yml | docker-compose -f - up
 ```
 
 **Important**: the current directory on your host will be mapped into the container for keeping state.
