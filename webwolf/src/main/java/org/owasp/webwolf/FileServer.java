@@ -32,9 +32,9 @@ public class FileServer {
 
     @Value("${webwolf.fileserver.location}")
     private String fileLocatation;
-    @Value("${server.address}")
+    @Value("${webwolf.host}")
     private String server;
-    @Value("${server.port}")
+    @Value("${webwolf.port}")
     private int port;
 
 
@@ -89,6 +89,7 @@ public class FileServer {
         }
 
         modelAndView.addObject("files", uploadedFiles);
+        System.out.println("webwolf_url : http://" + server +":" + port);
         modelAndView.addObject("webwolf_url", "http://" + server +":" + port);
         return modelAndView;
     }

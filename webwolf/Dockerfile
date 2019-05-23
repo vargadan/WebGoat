@@ -1,6 +1,6 @@
 FROM openjdk:11.0.1-jre-slim-stretch
 
-ARG webwolf_version=v8.0.0-SNAPSHOT
+ARG webwolf_version=v8.0.0.M25
 
 RUN \
   apt-get update && apt-get install && \

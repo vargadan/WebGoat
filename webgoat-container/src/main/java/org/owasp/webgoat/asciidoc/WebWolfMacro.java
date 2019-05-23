@@ -42,10 +42,11 @@ public class WebWolfMacro extends InlineMacroProcessor {
      * the browser in a Docker container and WebGoat on your local machine.
      */
     private String determineHost(String host, String port) {
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
-        String ip = request.getRemoteAddr();
-        String hostname = StringUtils.hasText(ip) ? ip : host;
-        return "http://" + hostname + ":" + port + (includeWebWolfContext() ? "/WebWolf" : "");
+        // this messes up in a container
+//        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
+//        String ip = request.getRemoteAddr();
+//        String hostname = StringUtils.hasText(ip) ? ip : host;
+        return "http://" + host + ":" + port + (includeWebWolfContext() ? "/WebWolf" : "");
     }
 
     protected boolean includeWebWolfContext() {

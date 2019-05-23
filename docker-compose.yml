@@ -2,9 +2,9 @@ version: '2.1'
 
 services:
   webgoat:
-    image: webgoat/webgoat-8.0
+    image: vargadan/webgoat-8.0:8.0
     environment:
-      - WEBWOLF_HOST=webwolf
+      - WEBWOLF_HOST=localhost
       - WEBWOLF_PORT=9090
     ports:
       - "8080:8080"
@@ -12,7 +12,10 @@ services:
     volumes:
       - .:/home/webgoat/.webgoat
   webwolf:
-    image: webgoat/webwolf
+    image: vargadan/webwolf-8.0:8.0
+    environment:
+      - WEBWOLF_HOST=localhost
+      - WEBWOLF_PORT=9090
     ports:
       - "9090:9090"
     command: --spring.datasource.url=jdbc:hsqldb:hsql://webgoat:9001/webgoat --server.address=0.0.0.0
