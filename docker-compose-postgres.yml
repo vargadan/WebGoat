@@ -1,6 +1,17 @@
 version: '2.1'
 
 services:
+  webgoat_db:
+    image: postgres:9.4
+# Uncomment to store the state of the database on the host.
+#    volumes:
+#      - ./database:/var/lib/postgresql
+    environment:
+      - POSTGRES_PASSWORD=webgoat
+      - POSTGRES_USER=webgoat
+      - POSTGRES_DB=webgoat
+    ports:
+      - "5432:5432"
   webgoat:
     image: vargadan/webgoat-8.0:8.0
     user: webgoat
@@ -29,15 +40,3 @@ services:
       - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL94Dialect
     ports:
       - "9090:9090"
-  webgoat_db:
-    image: postgres:9.4
-# Uncomment to store the state of the database on the host.
-#    volumes:
-#      - ./database:/var/lib/postgresql
-    environment:
-      - POSTGRES_PASSWORD=webgoat
-      - POSTGRES_USER=webgoat
-      - POSTGRES_DB=webgoat
-    ports:
-      - "5432:5432"
-
