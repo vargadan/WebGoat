@@ -1,13 +1,13 @@
-version: '2.0'
+version: '2.1'
 
 services:
   webgoat:
-    image: webgoat/webgoat-8.0
+    image: vargadan/webgoat-8.0:8.0
     user: webgoat
     environment:
-      - WEBWOLF_HOST=webwolf
+      - WEBWOLF_HOST=localhost
       - WEBWOLF_PORT=9090
-      - spring.datasource.url=jdbc:postgresql://webgoat_db:5432/webgoat
+      - spring.datasource.url=jdbc:postgresql://webgoat_db:5432/webgoat?user=webgoat&password=webgoat
       - spring.datasource.username=webgoat
       - spring.datasource.password=webgoat
       - spring.datasource.driver-class-name=org.postgresql.Driver
@@ -17,9 +17,11 @@ services:
     ports:
       - "8080:8080"
   webwolf:
-    image: webgoat/webwolf
+    image: vargadan/webwolf-8.0:8.0
     environment:
-      - spring.datasource.url=jdbc:postgresql://webgoat_db:5432/webgoat
+      - WEBWOLF_HOST=localhost
+      - WEBWOLF_PORT=9090    
+      - spring.datasource.url=jdbc:postgresql://webgoat_db:5432/webgoat?user=webgoat&password=webgoat
       - spring.datasource.username=webgoat
       - spring.datasource.password=webgoat
       - spring.datasource.driver-class-name=org.postgresql.Driver
@@ -37,4 +39,3 @@ services:
       - POSTGRES_DB=webgoat
     ports:
       - "5432:5432"
-
