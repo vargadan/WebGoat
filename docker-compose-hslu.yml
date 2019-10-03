@@ -35,7 +35,7 @@ services:
   webgoat_db:
     image: postgres:9.4
     volumes:
-      - ./database:/var/lib/postgresql
+      - /home/iavarga/database:/var/lib/postgresql
     environment:
       - POSTGRES_PASSWORD=webgoat
       - POSTGRES_USER=webgoat
