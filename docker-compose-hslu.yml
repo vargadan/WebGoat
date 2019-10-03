@@ -7,7 +7,9 @@ services:
     environment:
       - WEBWOLF_HOST=sprg-owasp.el.eee.intern
       - WEBWOLF_PORT=9090
-      - spring.datasource.url=jdbc:postgresql://webgoat:webgoat@sprg-owasp.el.eee.intern:5432/webgoat
+      - WEBGOAT_HOST=sprg-owasp.el.eee.intern
+      - WEBGOAT_PORT=8080
+      - spring.datasource.url=jdbc:postgresql://sprg-owasp.el.eee.intern:5432/webgoat?user=webgoat&password=webgoat
       - spring.datasource.username=webgoat
       - spring.datasource.password=webgoat
       - spring.datasource.driver-class-name=org.postgresql.Driver
@@ -19,7 +21,11 @@ services:
   webwolf:
     image: webgoat/webwolf
     environment:
-      - spring.datasource.url=jdbc:postgresql://webgoat:webgoat@sprg-owasp.el.eee.intern:5432/webgoat
+      - WEBWOLF_HOST=sprg-owasp.el.eee.intern
+      - WEBWOLF_PORT=9090
+      - WEBGOAT_HOST=sprg-owasp.el.eee.intern
+      - WEBGOAT_PORT=8080
+      - spring.datasource.url=jdbc:postgresql://webgoat:webgoat@sprg-owasp.el.eee.intern:5432/webgoat?user=webgoat&password=webgoat
       - spring.datasource.username=webgoat
       - spring.datasource.password=webgoat
       - spring.datasource.driver-class-name=org.postgresql.Driver
