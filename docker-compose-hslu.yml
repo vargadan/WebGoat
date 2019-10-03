@@ -9,12 +9,15 @@ services:
       - WEBGOAT_HOST=sprg-owasp.el.eee.intern
       - WEBGOAT_PORT=8080
       - spring.datasource.url=jdbc:postgresql://sprg-owasp.el.eee.intern:5432/webgoat?user=${WEBGOAT_DB_USER}&password=${WEBGOAT_DB_PASSWORD}
+            - spring.datasource.username=webgoat
+      - spring.datasource.password=webgoat
       - spring.datasource.driver-class-name=org.postgresql.Driver
       - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL94Dialect
     volumes:
       - .:/home/webgoat/.webgoat
     ports:
       - "8080:8080"
+      - "80:8080"
   webwolf:
     image: vargadan/webwolf-8.0:8.0
     environment:
