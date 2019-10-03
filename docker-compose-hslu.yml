@@ -14,8 +14,8 @@ services:
       - spring.datasource.password=webgoat
       - spring.datasource.driver-class-name=org.postgresql.Driver
       - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL94Dialect
-      - webgoat.server.directory=/home/iavarga/webgoat/
-      - webgoat.user.directory=/home/iavarga/webgoat/
+      - webgoat.server.directory=/root/webgoat/
+      - webgoat.user.directory=/root/webgoat/
     ports:
       - "8080:8080"
   webwolf:
@@ -35,7 +35,7 @@ services:
   webgoat_db:
     image: postgres:9.4
     volumes:
-      - /home/iavarga/webgoat_db:/var/lib/postgresql
+      - /root/webgoat_db:/var/lib/postgresql
     environment:
       - POSTGRES_PASSWORD=webgoat
       - POSTGRES_USER=webgoat
