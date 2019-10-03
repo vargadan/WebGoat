@@ -7,6 +7,8 @@ services:
     environment:
       - WEBWOLF_HOST=sprg-owasp.el.eee.intern
       - WEBWOLF_PORT=9090
+      - WEBGOAT_HOST=sprg-owasp.el.eee.intern
+      - WEBGOAT_PORT=8080
       - spring.datasource.url=jdbc:postgresql://webgoat_db:5432/webgoat
       - spring.datasource.username=webgoat
       - spring.datasource.password=webgoat
@@ -21,6 +23,8 @@ services:
     environment:
       - WEBWOLF_HOST=sprg-owasp.el.eee.intern
       - WEBWOLF_PORT=9090
+      - WEBGOAT_HOST=sprg-owasp.el.eee.intern
+      - WEBGOAT_PORT=8080
       - spring.datasource.url=jdbc:postgresql://webgoat_db:5432/webgoat
       - spring.datasource.username=webgoat
       - spring.datasource.password=webgoat
