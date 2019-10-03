@@ -8,9 +8,7 @@ services:
       - WEBWOLF_PORT=9090
       - WEBGOAT_HOST=sprg-owasp.el.eee.intern
       - WEBGOAT_PORT=8080
-      - spring.datasource.url=jdbc:postgresql://sprg-owasp.el.eee.intern:5432/webgoat?user=webgoat&password=webgoat
-      - spring.datasource.username=webgoat
-      - spring.datasource.password=webgoat
+      - spring.datasource.url=jdbc:postgresql://sprg-owasp.el.eee.intern:5432/webgoat?user=${WEBGOAT_DB_USER}&password=${WEBGOAT_DB_PASSWORD}
       - spring.datasource.driver-class-name=org.postgresql.Driver
       - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL94Dialect
     volumes:
@@ -24,9 +22,7 @@ services:
       - WEBWOLF_PORT=9090
       - WEBGOAT_HOST=sprg-owasp.el.eee.intern
       - WEBGOAT_PORT=8080
-      - spring.datasource.url=jdbc:postgresql://sprg-owasp.el.eee.intern:5432/webgoat?user=webgoat&password=webgoat
-      - spring.datasource.username=webgoat
-      - spring.datasource.password=webgoat
+      - spring.datasource.url=jdbc:postgresql://sprg-owasp.el.eee.intern:5432/webgoat?user=${WEBGOAT_DB_USER}&password=${WEBGOAT_DB_PASSWORD}
       - spring.datasource.driver-class-name=org.postgresql.Driver
       - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL94Dialect
     ports:
@@ -36,8 +32,8 @@ services:
     volumes:
       - /root/webgoat_db:/var/lib/postgresql
     environment:
-      - POSTGRES_PASSWORD=webgoat
-      - POSTGRES_USER=webgoat
+      - POSTGRES_PASSWORD=${WEBGOAT_DB_PASSWORD}
+      - POSTGRES_USER=${WEBGOAT_DB_USER}
       - POSTGRES_DB=webgoat
     ports:
       - "5432:5432"
