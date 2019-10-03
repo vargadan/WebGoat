@@ -2,8 +2,7 @@ version: '2.1'
 
 services:
   webgoat:
-    image: webgoat/webgoat-8.0
-    user: webgoat
+    image: vargadan/webgoat-8.0:8.0
     environment:
       - WEBWOLF_HOST=sprg-owasp.el.eee.intern
       - WEBWOLF_PORT=9090
@@ -19,7 +18,7 @@ services:
     ports:
       - "8080:8080"
   webwolf:
-    image: webgoat/webwolf
+    image: vargadan/webwolf-8.0:8.0
     environment:
       - WEBWOLF_HOST=sprg-owasp.el.eee.intern
       - WEBWOLF_PORT=9090
